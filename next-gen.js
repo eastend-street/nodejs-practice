@@ -22,3 +22,9 @@ for (let i = 0; i < nums.length; i++) {
 }
 
 nums.forEach(a => console.log(a * 3));
+
+const nums2 = nums.map(a => a * 3);
+
+const nums3 = nums.filter(a => a === 3);
+console.log(nums2);
+console.log(nums3);
