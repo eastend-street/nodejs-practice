@@ -32,8 +32,11 @@ const average = mySum(...mySecondArr) / mySecondArr.length;
 console.log(mySecondArr.filter(num => num > average));
 
 // g) Use setTimeout() function. Pass it a callback function as parameter that console logs
-// “Goodbye” after 3 seconds.
-
+// “Goodbye” after 3 seconds
+const sayGoodbye = () => {
+  console.log("Good bye");
+};
+setTimeout(sayGoodbye, 1000);
 
 // h) Create an “Employee” object that has the following key-value pairs: “name”,
 // “email”, “department” and “startDate”.
