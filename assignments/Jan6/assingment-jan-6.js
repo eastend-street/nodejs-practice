@@ -36,9 +36,16 @@ console.log(mySecondArr.filter(num => num > average));
 const sayGoodbye = () => {
   console.log("Good bye");
 };
-setTimeout(sayGoodbye, 1000);
+setTimeout(sayGoodbye, 3000);
 
 // h) Create an “Employee” object that has the following key-value pairs: “name”,
 // “email”, “department” and “startDate”.
+const Employee = {
+  name: "John",
+  email: "johnsmith@example.com",
+  department: "sales",
+  startDate: "12/01/2019"
+};
+
 // i) Destructure your object to create a new object, called “Person”, that only has name
 // and email keys (and the corresponding values).
