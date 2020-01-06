@@ -1,0 +1,1 @@
+const hello = require("./module1.js");
