@@ -26,6 +26,19 @@ const requestHandler = (req, res) => {
   }
 
   if (req.url === "/message" && req.method === "POST") {
+    const body = [];
+
+    req.on("data", package => {
+      console.log(package);
+      body.push(package);
+    });
+
+    req.on("end", () => {
+      const parsedBody = Buffer.concat(body).toString();
+      console.log(parsedBody);
+      const message = parsedBody.split("=")[1];
+      console.log(message);
+    });
   }
 };
 
