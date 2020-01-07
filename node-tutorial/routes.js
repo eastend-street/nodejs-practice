@@ -1,3 +1,5 @@
+const fs = require("fs");
+
 const requestHandler = (req, res) => {
   if (req.url === "/") {
     res.setHeader("Content-type", "text/html");
@@ -29,15 +31,21 @@ const requestHandler = (req, res) => {
     const body = [];
 
     req.on("data", package => {
-      console.log(package);
+      //   console.log(package);
       body.push(package);
     });
 
     req.on("end", () => {
       const parsedBody = Buffer.concat(body).toString();
-      console.log(parsedBody);
+      //   console.log(parsedBody);
       const message = parsedBody.split("=")[1];
-      console.log(message);
+      //   console.log(message);
+
+      fs.writeFile("message.txt", message, () => {
+        res.statusCode = 302;
+        res.setHeader("Location", "/");
+        return res.end();
+      });
     });
   }
 };
