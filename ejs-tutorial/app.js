@@ -11,4 +11,6 @@ app.set("view engine", "ejs")
 app.use(parser.urlencoded({ extended: false }));
 app.use(router);
 
+app.use(express.static("./public"))
+
 app.listen(3000);
