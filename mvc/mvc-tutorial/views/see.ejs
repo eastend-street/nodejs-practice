@@ -4,14 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Read note</title>
+    <title>See</title>
   </head>
   <body>
-    <h1>Notes by others</h1>
-    <ul>
-      <% notes.map((note) => { %>
-      <li><a href="/notes/<%= note.id %>"><%= note.author %></a></li>
-      <% }) %>
-    </ul>
+    <h1><%= note.author%></h1>
+    <h3><%= note.title%></h3>
+    <p><%= note.content%></p>
   </body>
 </html>
