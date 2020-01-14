@@ -30,6 +30,27 @@ class Note {
       callback(JSON.parse(data));
     });
   }
+
+  static deleteNote(id) {
+    this.getAll(notes => {
+      const updatedNotes = notes.filter(note => note.id != id);
+      fs.writeFile(p, JSON.stringify(updatedNotes), (err, data) => {
+        console.log(data);
+      });
+    });
+  }
+
+  static updatedNote(id, title, content) {
+    this.getAll(notes => {
+      const noteToChange = notes.find(note => note.id === id);
+      noteToChange.title = title;
+      noteToChange.content = content;
+
+      fs.writeFile(p, JSON.stringify(notes), (err, data) => {
+        console.log(data);
+      });
+    });
+  }
 }
 
 module.exports = Note;

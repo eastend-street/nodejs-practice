@@ -9,7 +9,7 @@ exports.writeNote = (req, res, next) => {
 };
 
 exports.postNote = (req, res, next) => {
-  const note = new Note(req.body.author, req.body.content, req.body.content);
+  const note = new Note(req.body.author, req.body.title, req.body.content);
   console.log(note);
   note.saveNote();
   res.redirect("/");
@@ -27,4 +27,19 @@ exports.seeNote = (req, res, next) => {
     const note = notes.find(note => note.id === noteId);
     res.render("see", { note: note });
   });
+};
+
+exports.deleteNote = (req, res, next) => {
+  const noteId = req.body.noteId;
+  Note.deleteNote(noteId);
+  res.redirect("/read");
+};
+
+exports.updateNote = (req, res, next) => {
+  const noteId = req.body.noteId;
+  const title = req.body.title;
+  const content = req.body.content;
+
+  Note.updatedNote(noteId, title, content);
+  res.redirect("/read");
 };

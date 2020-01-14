@@ -11,4 +11,8 @@ router.get("/read", controller.readNotes);
 
 router.get("/notes/:noteId", controller.seeNote);
 
+router.post("/see", controller.deleteNote);
+
+router.post("/update", controller.updateNote);
+
 module.exports = router;

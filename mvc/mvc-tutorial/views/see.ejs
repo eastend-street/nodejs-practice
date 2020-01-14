@@ -10,5 +10,19 @@
     <h1><%= note.author%></h1>
     <h3><%= note.title%></h3>
     <p><%= note.content%></p>
+
+    <br />
+    <form action="/see" method="POST">
+      <input type="hidden" name="noteId" value="<%= note.id %>" />
+      <button type="submit">Delete</button>
+    </form>
+
+    <br />
+    <form action="/update" method="POST">
+      <input type="hidden" name="noteId" value="<%= note.id %>" />
+      <input type="text" name="title" />
+      <input type="text" name="content" />
+      <button type="submit">Update</button>
+    </form>
   </body>
 </html>
